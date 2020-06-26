@@ -1,0 +1,9 @@
+.app {
+  $root: ".app";
+
+  position: relative;
+
+  #{$root}__content {
+    display: flex;
+  }
+}

@@ -10,8 +10,9 @@ import * as handTrack from 'handtrackjs'
  *                          2: both
  * @param {Boolean} displayVideo show or not video (default = false)
  * @param {MediaStream} source the video source (REQUIRED)
+ * @param {Function} onDetect
  */
-export const Camera = ({detectionSize, boxMode, displayVideo, source}) => {
+export const Camera = ({detectionSize, boxMode, displayVideo, source, onDetect}) => {
   const webcamRef = useRef();
   const canvasRef = useRef();
 
@@ -28,7 +29,7 @@ export const Camera = ({detectionSize, boxMode, displayVideo, source}) => {
     canvasRef.current.height = window.innerHeight;
     setCtx(canvasRef.current.getContext('2d'));
 
-    handTrack.load({scoreThreshold: 0.8}).then(m => {
+    handTrack.load({scoreThreshold: 0.9}).then(m => {
       setModel(m);
     });
   }, []);
@@ -46,15 +47,17 @@ export const Camera = ({detectionSize, boxMode, displayVideo, source}) => {
       if(model) {
         const result = await model.detect(webcamRef.current);
         ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
-  
+
         result.forEach(h => {
           if(!boxMode || boxMode === 2) {
             drawBox(h.bbox);
           }
-  
+
           if(boxMode === 1 || boxMode === 2) {
             drawCustomDetection(h.bbox);
           }
+
+          onDetect({x: h.bbox[0] + h.bbox[2] / 2, y: h.bbox[1] + h.bbox[3] / 2});
         });
       }
     } catch(err) {
