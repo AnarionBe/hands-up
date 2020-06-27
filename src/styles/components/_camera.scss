@@ -6,10 +6,12 @@
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 0;
   }
 
   #{$root}__video {
     transform: scaleX(-1);
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 }

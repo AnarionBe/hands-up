@@ -56,7 +56,7 @@ export default () => {
 
   return (
     <div className="app">
-      {source && <Camera boxMode={1} displayVideo source={source} onDetect={handleDetect} />}
+      {source && <Camera boxMode={4} displayVideo source={source} onDetect={handleDetect} />}
       <div className="app__content">
         <button onClick={() => setButtonValue('Clicked')} style={styles.button} ref={buttonRef}>{buttonValue}</button>
         <button onClick={() => setButtonValue2('Clicked')} style={styles.button2} ref={buttonRef2}>{buttonValue2}</button>
