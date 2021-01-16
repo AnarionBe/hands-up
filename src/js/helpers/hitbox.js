@@ -7,7 +7,7 @@ export class Hitbox {
     this._color = '#0080FF'
   }
 
-  isPointIn(x, y) {
+  isPointIn({x, y}) {
     return x >= this._x && x <= this._x + this._width && y >= this._y && y <= this._y + this._height; 
   }
 
@@ -46,7 +46,6 @@ export class Hitbox {
   drawCenter(ctx) {
     ctx.strokeStyle = this._color;
     ctx.fillStyle = this._color;
-    console.log(this.center)
     ctx.fillRect(this.center.x - 2, this.center.y - 2, 4, 4);
   }
 }

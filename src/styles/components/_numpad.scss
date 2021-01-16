@@ -1,0 +1,12 @@
+.numpad {
+  $root: '.numpad';
+
+  #{$root}__button {
+    border: 1px solid black;
+    background-color: transparentize($color: grey, $amount: .3);
+    width: 7.5rem;
+    height: 7.5rem;
+    font-size: 1.5rem;
+    
+  }
+}
