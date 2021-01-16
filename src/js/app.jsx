@@ -23,6 +23,7 @@ export default () => {
   return (
     <div className="app">
       {source && <Camera boxMode={4} displayVideo source={source} onDetect={handleDetect} />}
+      <span className="result">{content}</span>
       <div className="app__content">
         <Numpad
           hand={hand}

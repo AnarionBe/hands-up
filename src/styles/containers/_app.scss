@@ -6,7 +6,27 @@
   #{$root}__content {
     position: absolute;
     z-index: 1;
-    top: 25vh;
-    left: 10vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .result {
+    position: absolute;
+    z-index: 1;
+    background-color: rgba(19, 16, 16, 0.479);
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 100vw;
+    padding: 16px;
+    font-size: 2rem;
+    color: white;
+    display: flex;
+    justify-content: center;
   }
 }
