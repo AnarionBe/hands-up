@@ -1,0 +1,15 @@
+.menu {
+  $root: '.menu';
+
+  max-width: 20%;
+
+  ul {
+    list-style: none;
+
+    #{$root}__item {
+      width: 100%;
+      height: 50px;
+    }
+  }
+
+}

@@ -4,18 +4,12 @@ import {Hitbox} from '../helpers/index'
 
 /**
  * 
- * @param {Integer} detectionSize size of custom detection box (default = 5)
- * @param {Integer} boxMode type of detection box redenring (default = 0)
- *                          0: handtrackjs box
- *                          1: box with custom size
- *                          2: both
  * @param {Boolean} displayVideo show or not video (default = false)
  * @param {MediaStream} source the video source (REQUIRED)
  * @param {Function} onDetect
  */
-export const Camera = ({detectionSize, boxMode, displayVideo, source, onDetect}) => {
+export const Camera = ({displayVideo = false, source, onDetect, canvasRef}) => {
   const webcamRef = useRef();
-  const canvasRef = useRef();
 
   const [model, setModel] = useState(null);
   const [timeoutId, setTimeoutId] = useState(null);
@@ -48,9 +42,7 @@ export const Camera = ({detectionSize, boxMode, displayVideo, source, onDetect})
       if(model) {
         const result = await model.detect(webcamRef.current);
         ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
-        
-        // model.renderPredictions(result, canvasRef.current, ctx, webcamRef.current);
-        
+
         result.forEach(h => {
           const box = new Hitbox(...h.bbox);
 
@@ -70,7 +62,6 @@ export const Camera = ({detectionSize, boxMode, displayVideo, source, onDetect})
   return (
     <div className="camera">
       <video className="camera__video" ref={webcamRef} autoPlay style={displayVideo ? {} : {display: "none"}}></video>
-      <canvas className="camera__canvas" ref={canvasRef}></canvas>
     </div>
   );
 }

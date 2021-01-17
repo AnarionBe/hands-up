@@ -1,10 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react'
-import {Camera, Numpad} from './components/index'
+import {Camera} from './components/index'
+import {Menu, Home, Numpad} from './containers/index'
 
 export default () => {
   const [source, setSource] = useState(null);
-  const [hand, setHand] = useState(null);
-  const [content, setContent] = useState('');
+  const [position, setPosition] = useState(null);
+  const [page, setPage] = useState('home');
+  const canvasRef = useRef();
 
   useEffect(() => {
     navigator.mediaDevices.getUserMedia({video: true}).then(src => {
@@ -17,33 +19,25 @@ export default () => {
   }, []);
 
   const handleDetect = (coord) => {
-    setHand(coord);
+    setPosition(coord);
+  }
+
+  const displayContent = () => {
+    switch(page) {
+      case 'numpad': return <Numpad hand={position} />
+
+      default: return <Home />
+    }
   }
 
   return (
     <div className="app">
-      {source && <Camera boxMode={4} displayVideo source={source} onDetect={handleDetect} />}
-      <span className="result">{content}</span>
+      {source && <Camera displayVideo source={source} onDetect={handleDetect} canvasRef={canvasRef} />}
+      <canvas className="app__canvas" ref={canvasRef} />
+      <Menu setPage={setPage} />
       <div className="app__content">
-        <Numpad
-          hand={hand}
-          onClick={(val) => {setContent(content + val)}}
-        />
+        {displayContent()}
       </div>
     </div>
   );
-}
-
-const styles = {
-  button: {
-    position: 'absolute',
-    top: '50vh',
-    left: '25vw',
-    width: '100px',
-    height: '100px',
-    backgroundColor: 'transparent',
-    color: 'red',
-    borderColor: 'red',
-    fontSize: '1.5rem'
-  }
 }

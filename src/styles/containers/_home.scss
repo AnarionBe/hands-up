@@ -1,0 +1,27 @@
+.home {
+  padding: 1rem;
+  width: calc(100% - 350px);
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 1.2rem;
+  }
+
+  p {
+    line-height: 1.2rem;
+    margin-bottom: 3rem;
+  }
+}
