@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import {Camera} from './components/index'
-import {Menu, Home, Numpad} from './containers/index'
+import {Menu, Home, Numpad, Aim} from './containers/index'
 
 export default () => {
   const [source, setSource] = useState(null);
@@ -24,9 +24,10 @@ export default () => {
 
   const displayContent = () => {
     switch(page) {
-      case 'numpad': return <Numpad hand={position} />
+      case 'numpad': return <Numpad hand={position} />;
+      case 'aim': return <Aim hand={position} />
 
-      default: return <Home />
+      default: return <Home />;
     }
   }
 

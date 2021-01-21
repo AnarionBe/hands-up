@@ -1,0 +1,17 @@
+.aim {
+  $root: '.aim';
+
+  margin-right: 25%;
+  position: relative;
+  max-height: 100vh;
+  height: 100vh;
+
+  #{$root}__target {
+    position: absolute;
+    background-color: transparentize($color: grey, $amount: .3);
+    color: white;
+    width: 7.5rem;
+    height: 7.5rem;
+    font-size: 1.5rem;
+  }
+}

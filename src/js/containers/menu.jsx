@@ -20,6 +20,13 @@ export const Menu = ({setPage}) => {
               onClick={(() => setPage('numpad'))}
             />
           </li>
+          <li>
+            <Button
+              className="menu__item"
+              title="Aim"
+              onClick={(() => setPage('aim'))}
+            />
+          </li>
         </ul>
       </nav>
     </aside>

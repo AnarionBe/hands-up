@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import {Hitbox} from '../helpers/index'
 import {SENSIBILITY} from '../helpers/index'
 
-export const Button = ({onClick, className, title, hand, onHover}) => {
+export const Button = ({onClick, className, title, hand, onHover, style}) => {
   const buttonRef = useRef();
 
   const [countFrames, setCountFrames] = useState(0);
@@ -26,6 +26,7 @@ export const Button = ({onClick, className, title, hand, onHover}) => {
 
   return (
     <button
+      style={style}
       onClick={() => onClick()}
       ref={buttonRef}
       className={className}
