@@ -33,8 +33,8 @@ export default () => {
 
   return (
     <div className="app">
-      {source && <Camera displayVideo source={source} onDetect={handleDetect} canvasRef={canvasRef} />}
-      <canvas className="app__canvas" ref={canvasRef} />
+      {/* {source && <Camera displayVideo source={source} onDetect={handleDetect} canvasRef={canvasRef} />} */}
+      {/* <canvas className="app__canvas" ref={canvasRef} /> */}
       <Menu setPage={setPage} />
       <div className="app__content">
         {displayContent()}

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import {Hitbox} from '../helpers/index'
 import {SENSIBILITY} from '../helpers/index'
 
-export const Button = ({onClick, className, title, hand, onHover, style}) => {
+export const Button = ({onClick, className, title, hand, onHover, style, sensibility = SENSIBILITY}) => {
   const buttonRef = useRef();
 
   const [countFrames, setCountFrames] = useState(0);
@@ -17,7 +17,7 @@ export const Button = ({onClick, className, title, hand, onHover, style}) => {
         setCountFrames(0);
       }
 
-      if(countFrames === SENSIBILITY) {
+      if(countFrames === sensibility) {
         buttonRef.current.click();
         setCountFrames(0);
       }
