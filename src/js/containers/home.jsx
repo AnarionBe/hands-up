@@ -26,6 +26,11 @@ export const Home = () => {
         In this example you will be able to interact with buttons to enter a number. This is inspired from
         &nbsp;<a href="https://qz.com/679782/programmers-imagine-the-most-ridiculous-ways-to-input-a-phone-number/">the most ridiculous UI to enter a phone number</a>.
       </p>
+
+      <h3>Aim</h3>
+      <p>
+        Hit the targets to increase your score. Each target will stay for 2 seconds only
+      </p>
     </div>
   );
 }
